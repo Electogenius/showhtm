@@ -10,11 +10,14 @@
 		window.onload = function() {
 			if (window.location.href.includes("?")) {
 				var htm = window.location.href.split("?")
-				htm = htm[1]
-				console.log(htm)
-				var iframe = document.createElement("iframe")
-				document.body.appendChild(iframe)
-				iframe.src = 'data:text/html;charset=utf-8,' + atob(encodeURI(htm));
+				htm = atob(htm[1])
+				//console.log(atob(htm))
+				var iframe = document.createElement('iframe');
+				var html = htm;
+				iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
+				document.body.appendChild(iframe);
+				console.log('iframe.contentWindow =', iframe.contentWindow);
+
 			}else{
 				var htm = btoa(prompt("enter html code"))
 				window.location.href+="?"+htm
