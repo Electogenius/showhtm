@@ -9,7 +9,7 @@
 		window.onload = function() {
 			if (window.location.href.includes("?")) {
 				var htm = window.location.href.slice(window.location.href.indexOf("?")+1,window.location.href.length)
-				htm = (decodeURI(htm))
+				htm = (atob(htm))
 				//console.log(atob(htm))
 				/*var iframe = document.createElement('iframe');
 				var html = htm;
@@ -20,7 +20,7 @@
 			}else{
 				var x = prompt("enter html")
 				var htm = btoa(x)
-				window.location.href+="?"+ encodeURI(prompt("enter html code"))
+				window.location.href+="?"+ encodeURI(htm)
 			}
 		}
 	</script>
