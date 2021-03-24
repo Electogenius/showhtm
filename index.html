@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta charset="UTF-8">
@@ -9,18 +8,19 @@
 	<script type="text/javascript" charset="utf-8">
 		window.onload = function() {
 			if (window.location.href.includes("?")) {
-				var htm = window.location.href.split("?")
-				htm = atob(htm[1])
+				var htm = window.location.href.slice(window.location.href.indexOf("?")+1,window.location.href.length)
+				htm = (decodeURI(htm))
 				//console.log(atob(htm))
-				var iframe = document.createElement('iframe');
+				/*var iframe = document.createElement('iframe');
 				var html = htm;
 				iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
 				document.body.appendChild(iframe);
-				console.log('iframe.contentWindow =', iframe.contentWindow);
-
+				console.log('iframe.contentWindow =', iframe.contentWindow);*/
+				document.write(htm)
 			}else{
-				var htm = btoa(prompt("enter html code"))
-				window.location.href+="?"+htm
+				var x = prompt("enter html")
+				var htm = btoa(x)
+				window.location.href+="?"+ encodeURI(prompt("enter html code"))
 			}
 		}
 	</script>
@@ -40,3 +40,4 @@
 </body>
 
 </html>
+</script>
