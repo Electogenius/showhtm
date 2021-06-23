@@ -4,12 +4,11 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>edit</title>
+	<title>&nbsp;</title>
 	<script type="text/javascript" charset="utf-8">
 		window.onload = function() {
 			if (window.location.href.includes("?")) {
-				var htm = window.location.href.slice(window.location.href.indexOf("?")+1,window.location.href.length)
-				htm = (atob(htm))
+				var htm = atob(location.search.slice(1))
 				//console.log(atob(htm))
 				/*var iframe = document.createElement('iframe');
 				var html = htm;
@@ -20,24 +19,28 @@
 			}else{
 				var x = prompt("enter html")
 				var htm = btoa(x)
-				window.location.href+="?"+ (htm)
+				location.search=(htm)
 			}
 		}
 	</script>
 </head>
 <style type="text/css" media="all">
+	body{
+		background-color: #038;
+	}
 	iframe {
 		position: absolute;
 		left: 0;
 		top: 0;
 		border: none;
-		height: 100vh;
-		width: 100vw;
+		height: 100%;
+		width: 100%;
+		background-color: white;
 	}
 </style>
 
 <body>
-	<iframe id="i" frameborder="0"></iframe>
+	<iframe id="i" frameborder="0" sandbox="allow-scripts allow-forms allow-modals allow-popups"></iframe>
 </body>
 
 </html>
