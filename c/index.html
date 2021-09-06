@@ -9,18 +9,17 @@
 	<script type="text/javascript" charset="utf-8">
 		window.onload = function() {
 			if (window.location.href.includes("?")) {
-				var htm = atob(location.search.slice(1))
+				var htm = (location.search.slice(1))
 				//console.log(atob(htm))
 				/*var iframe = document.createElement('iframe');
 				var html = htm;
 				iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
 				document.body.appendChild(iframe);
 				console.log('iframe.contentWindow =', iframe.contentWindow);*/
-				document.getElementById("i").srcdoc = decodeURI()
+				document.getElementById("i").srcdoc = LZString.decompressFromBase64(htm)
 			}else{
-				var x = prompt("enter html")
-				var htm = btoa(x)
-				location.search=(htm)
+				var x = prompt("Enter some html")
+				location.search=LZString.compressToBase64(x)
 			}
 		}
 	</script>
