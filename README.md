@@ -21,4 +21,4 @@ wait no, quadruple no
 only use: make apple web apps yay
 
 
-New compressed link mode at /c.html
+New compressed link mode at /c
